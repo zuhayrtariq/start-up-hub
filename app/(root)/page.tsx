@@ -1,9 +1,16 @@
+import SearchForm from '@/components/SearchForm'
 import React from 'react'
 
-const Home = () => {
+const Home = async({searchParams} : {searchParams : Promise<{query?:string}>}) => {
+  const query = (await searchParams).query
   return (
     <>
-    <h1 className='text-2xl'>Home</h1>
+    <section className='pink_container'>
+
+    <h1 className='heading'>Empowering Entrepreneurs,<br/>Shaping Tomorrow</h1>
+    <p className="sub-heading !max-w-3xl">Share Your Vision, Cast Your Vote, and Get Recognized Online.</p>
+    <SearchForm query={query}/>
+    </section>
     </>
   )
 }
